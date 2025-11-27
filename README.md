@@ -21,5 +21,5 @@
 ### Blender Projects
 - Links
 
-#Education
+# Education
 - Vocational Education in Computer Sience
