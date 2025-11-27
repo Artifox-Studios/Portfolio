@@ -22,4 +22,6 @@
 - Links
 
 # Education
-- Vocational Education in Computer Sience
+- Elementary School
+- High School
+- Currently doing Vocational Education in Computer Sience
