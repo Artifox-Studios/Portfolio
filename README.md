@@ -1,6 +1,6 @@
 # Portfolio
 
-![Octocat](docs/assets/artifox.jpg)
+![Artifox](docs/assets/artifox.jpg)
 
 ## Projects
 ### VFX Projects
@@ -19,9 +19,6 @@
 11 - [Click](https://medal.tv/es/games/roblox-studio/clips/lAQdeer36dZ-tSMYU?invite=cr-MSxnNzYsMTcwNzczMjE4&v=3)            ----                 12 - [Click](https://medal.tv/es/games/roblox-studio/clips/lAQecpoJVIdWn_ofJ?invite=cr-MSxFNTEsMTcwNzczMjE4&v=5)
 
 13 - [Click](https://medal.tv/es/games/roblox-studio/clips/lAQfcR99VAZc9ygD8?invite=cr-MSxUWlgsMTcwNzczMjE4&v=5)
-
-### Blender Projects
-- Links
 
 # Education
 - Elementary School
