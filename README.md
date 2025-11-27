@@ -1,6 +1,6 @@
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
 # Portfolio
+
+![Octocat](docs/assets/artifox.jpg)
 
 ## Projects
 ### VFX Projects
