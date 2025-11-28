@@ -2,3 +2,8 @@ title: Portfolio
 logo: assets/artifox.jpg
 description: Videogame Dev
 theme: jekyll-theme-architect
+sass:
+  style: compressed
+
+include:
+  - assets
