@@ -1,6 +1,57 @@
-body {
-  background-image: url("fondoweb.jpg") !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
+/* Contenedor del parallax */
+.parallax-space {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Capa base: estrellas suaves */
+.star-layer-1 {
+  background: url("estrella1.png") repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  animation: float1 120s linear infinite;
+  opacity: 0.4;
+}
+
+/* Capa media */
+.star-layer-2 {
+  background: url("estrella2.png") repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  animation: float2 240s linear infinite;
+  opacity: 0.6;
+}
+
+/* Capa superior: responderá al ratón */
+.star-layer-3 {
+  background: url("estrella3.png") repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 150%;
+  opacity: 0.8;
+  transition: transform 0.1s linear;
+}
+
+/* Animaciones suaves */
+@keyframes float1 {
+  from { transform: translate(0,0); }
+  to { transform: translate(-500px, 500px); }
+}
+
+@keyframes float2 {
+  from { transform: translate(0,0); }
+  to { transform: translate(800px, -800px); }
 }
