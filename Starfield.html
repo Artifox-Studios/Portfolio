@@ -1,53 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-  <canvas id="starfield"></canvas>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artifox Studios - Portafolio</title>
   <style>
-    body { margin:0; overflow:hidden; background:black; color:white; }
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
     #starfield {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
       z-index: -1;
     }
-  /* Ajusta tu contenido para que esté sobre el fondo */
+
+    main {
+      position: relative;
+      padding: 2rem;
+      z-index: 10;
+    }
   </style>
+</head>
+<body>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Fondo de estrellas</title>
+  <canvas id="starfield"></canvas>
 
-    < style>
-      body {
-        margin: 0;
-        overflow: hidden;
-        background: black;
-        font-family: Arial, sans-serif;
-        color: white;
-      }
+  <main>
+    <h1>Artifox Studios</h1>
+    <p>Bienvenido a mi portafolio.</p>
+    <img src="artifox.jpg" alt="Artifox Studio" style="max-width:100%; height:auto;">
+  </main>
 
-      #starfield {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-      }
-
-      main {
-        position: relative;
-        padding: 2rem;
-        z-index: 10;
-      }
-    </style>
-  </head>
-  <body>
-
-    <canvas id="starfield"></canvas>
-
-    <main>
-      <h1>Mi Portafolio</h1>
-      <p>Este es un fondo de estrellas en 3D con parallax.</p>
-    </main>
-
-    <script src="assets/js/starfield.js"></script>
-  </body>
+  <script src="assets/js/starfield.js"></script>
+</body>
 </html>
