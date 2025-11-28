@@ -1,61 +1,41 @@
-<!doctype html>
-// Redraw for twinkle only (not necessary to redraw on every frame for perf, but OK)
-ld.draw();
-});
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio - Fondo de estrellas</title>
 
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
 
-// Mouse move handler
-function onMove(e){
-const x = e.clientX || (e.touches && e.touches[0] && e.touches[0].clientX) || w/2;
-const y = e.clientY || (e.touches && e.touches[0] && e.touches[0].clientY) || h/2;
-state.mx = (x - w/2) / (w/2);
-state.my = (y - h/2) / (h/2);
-}
+    #starfield {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
 
+    main {
+      position: relative;
+      padding: 2rem;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
 
-// Device orientation for mobile tilt
-function onDeviceOrientation(ev){
-if(ev.gamma === null) return;
-// gamma: left-right [-90,90], beta: front-back [-180,180]
-state.mx = Math.max(-1, Math.min(1, ev.gamma / 45));
-state.my = Math.max(-1, Math.min(1, ev.beta / 45));
-}
+  <canvas id="starfield"></canvas>
 
+  <main>
+    <h1>Mi Portafolio</h1>
+    <p>Este es un fondo de estrellas en 3D con parallax.</p>
+  </main>
 
-// Animation loop
-let rafId = null;
-function tick(){
-updateTransforms();
-rafId = requestAnimationFrame(tick);
-}
-
-
-// Init listeners
-if(!reduceMotion){
-window.addEventListener('mousemove', onMove, {passive:true});
-window.addEventListener('touchmove', onMove, {passive:true});
-window.addEventListener('deviceorientation', onDeviceOrientation, {passive:true});
-window.addEventListener('resize', resize, {passive:true});
-window.addEventListener('scroll', ()=>{/* trigger transform update on scroll */}, {passive:true});
-tick();
-}
-
-
-// Cleanup on page unload (good practice when embedding as component)
-window.addEventListener('pagehide', ()=>{
-cancelAnimationFrame(rafId);
-});
-
-
-// Expose a simple API for frameworks (optional)
-window.__Starfield = {
-regenerate: resize,
-layers: layerData
-};
-
-
-})();
-</script>
+  <script src="assets/js/starfield.js"></script>
 </body>
 </html>
