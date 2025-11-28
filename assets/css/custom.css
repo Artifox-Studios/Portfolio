@@ -4,3 +4,31 @@ body {
   background-repeat: no-repeat !important;
   background-attachment: fixed !important;
 }
+
+/* Fondo general */
+body {
+  background-image: url("fondoweb.jpg") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+}
+
+/* Hacer las cajas del tema ligeramente transparentes */
+#content-wrapper .inner,
+header .inner,
+#sidebar {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Eliminar el borde negro del theme */
+#content-wrapper .inner {
+  border: none !important;
+}
+
+/* Espaciado general para que "respire" más */
+body {
+  padding: 20px;
+}
