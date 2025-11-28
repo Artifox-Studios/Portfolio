@@ -19,8 +19,8 @@
 
   <body>
     <div class="parallax-space">
-      <div class="star-layer-1"></div> 
-      <div class="star-layer-2"></div> 
+      <div class="star-layer-1"></div>
+      <div class="star-layer-2"></div>
       <div class="star-layer-3" id="mouseLayer"></div>
     </div>
     <header>
@@ -66,10 +66,11 @@
     </div>
     <script>
       document.addEventListener("mousemove", function(e) {
-        const layer = document.getElementById("mouseLayer");
-        let x = (e.clientX / window.innerWidth - 0.5) * 30;
-        let y = (e.clientY / window.innerHeight - 0.5) * 30;
-        layer.style.transform = `translate(${x}px, ${y}px)`;});
+      const layer = document.getElementById("mouseLayer");
+      let x = (e.clientX / window.innerWidth - 0.5) * 30;
+      let y = (e.clientY / window.innerHeight - 0.5) * 30;
+      layer.style.transform = `translate(${x}px, ${y}px)`;
+      });
     </script>
   </body>
 </html>
