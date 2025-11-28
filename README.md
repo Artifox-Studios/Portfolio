@@ -24,3 +24,6 @@
 - Elementary School
 - High School
 - Currently doing Vocational Education in Computer Sience
+
+# Work
+- At the moment i'm with a small group of developers called Team Lumina doing a project in Roblox Studio, mi job is to do VFX for the game
