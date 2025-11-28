@@ -7,7 +7,6 @@ header .inner,
   padding: 20px;
 }
 
-/* Contenedor del parallax */
 .parallax-space {
   position: fixed;
   top: 0;
@@ -18,43 +17,37 @@ header .inner,
   z-index: -1;
 }
 
-/* Capa base: estrellas suaves */
+/* Capa base: estrellas pequeñas que flotan lento */
 .star-layer-1 {
-  background: url("estrella1.png") repeat;
+  background: url("star1.png") repeat;
   position: absolute;
-  top: 0;
-  left: 0;
   width: 200%;
   height: 200%;
   animation: float1 120s linear infinite;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
-/* Capa media */
+/* Capa intermedia */
 .star-layer-2 {
-  background: url("estrella2.png") repeat;
+  background: url("star2.png") repeat;
   position: absolute;
-  top: 0;
-  left: 0;
   width: 200%;
   height: 200%;
   animation: float2 240s linear infinite;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
-/* Capa superior: responderá al ratón */
+/* Capa superior: responde al ratón */
 .star-layer-3 {
-  background: url("estrella3.png") repeat;
+  background: url("star3.png") repeat;
   position: absolute;
-  top: 0;
-  left: 0;
   width: 150%;
   height: 150%;
   opacity: 0.8;
   transition: transform 0.1s linear;
 }
 
-/* Animaciones suaves */
+/* Animaciones de movimiento lento */
 @keyframes float1 {
   from { transform: translate(0,0); }
   to { transform: translate(-500px, 500px); }
@@ -64,3 +57,4 @@ header .inner,
   from { transform: translate(0,0); }
   to { transform: translate(800px, -800px); }
 }
+
