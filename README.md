@@ -1,6 +1,6 @@
 # Portfolio
 
-![Artifox](docs/assets/artifox.jpg)
+![Artifox](assets/artifox.jpg)
 
 ## Projects
 ### VFX Projects
