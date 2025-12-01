@@ -38,7 +38,7 @@ body {
   transition: background 1s ease;
 }
 #stormOverlay.show {
-  background: rgba(255,255,255,0.12); /* leve blanco */
+  background: rgba(255,255,255,0.12);
 }
 
 /* Contenido principal */
@@ -60,48 +60,4 @@ body {
   box-shadow: 0 0 10px rgba(79,183,227,0.12);
   transition: transform .14s ease, box-shadow .14s ease, background .14s;
 }
-.neon-btn:hover, .neon-btn:focus {
-  transform: translateY(-4px);
-  background: linear-gradient(90deg, var(--color-3), var(--color-5));
-  box-shadow: 0 8px 30px rgba(46,162,194,0.18);
-  outline: none;
-}
-.neon { text-shadow: 0 0 12px var(--color-2), 0 0 24px var(--color-3); }
-.resaltado { color: var(--color-3); font-weight: 800; }
-
-/* Zorro animado blanco */
-#foxContainer {
-  position: fixed;
-  width: 120px;
-  height: 70px;
-  bottom: 70px;
-  left: -150px;
-  pointer-events: none;
-  z-index: 3;
-  opacity: 0;
-  transition: opacity 1s ease, bottom 1s ease;
-}
-#foxContainer.show {
-  opacity: 1;
-}
-.fox {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-origin: center;
-}
-.fox .body { background: #fff; position: absolute; width: 66%; height: 57%; left: 16%; top: 28%; border-radius: 40px 40px 30px 30px; }
-.fox .head { background: #fff; position: absolute; width: 33%; height: 50%; left: 0; top: 0; border-radius: 40px 40px 20px 20px; }
-.fox .ear1, .fox .ear2 { background: #fff; position: absolute; width: 16%; height: 30%; top: -22%; border-radius: 4px; }
-.fox .ear1 { left: 5%; transform: rotate(-10deg); }
-.fox .ear2 { left: 22%; transform: rotate(10deg); }
-.fox .tail { background: #fff; position: absolute; width: 50%; height: 35%; right: -38%; top: 36%; border-radius: 30px 40px 40px 30px; transform-origin: left center; animation: tailWag 0.8s ease-in-out infinite; }
-@keyframes tailWag { 0% { transform: rotate(12deg); } 50% { transform: rotate(-12deg); } 100% { transform: rotate(12deg); } }
-
-/* Responsive */
-@media (max-width: 680px) {
-  .title { font-size: 1.9rem; margin-top: 60px; }
-  #foxContainer { width: 80px; height: 50px; bottom: 50px; left: -100px; }
-  .menu { gap: 10px; }
-  .neon-btn { padding: 9px 14px; font-size: 0.95rem; }
-}
+.neon-btn:hov
