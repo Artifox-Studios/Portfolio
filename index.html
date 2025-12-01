@@ -1,48 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Ártico</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio Ártico</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <canvas id="snowCanvas"></canvas>
+  <!-- Canvas de nieve (detrás del contenido) -->
+  <canvas id="snowCanvas" aria-hidden="true"></canvas>
 
-    <nav class="menu">
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+  <!-- Menú centrado -->
+  <nav class="menu" role="navigation" aria-label="Menú principal">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
 
+  <!-- Contenido principal -->
+  <main>
     <section id="inicio" class="section">
-        <h1>Bienvenido a mi Mundo Ártico</h1>
-        <p>Portfolio de mis proyectos en Roblox Studio, Blender y efectos VFX.</p>
+      <h1>Bienvenido a mi Mundo Ártico</h1>
+      <p>Portfolio de proyectos en Roblox Studio, Blender y VFX — con amor por los zorros del ártico.</p>
     </section>
 
     <section id="proyectos" class="section">
-        <h2>Mis Proyectos</h2>
-        <div class="card-grid">
-            <div class="card">Roblox Studio</div>
-            <div class="card">Blender</div>
-            <div class="card">VFX Roblox</div>
-        </div>
+      <h2>Mis Proyectos</h2>
+      <div class="card-grid">
+        <div class="card">Roblox Studio</div>
+        <div class="card">Modelado (Blender)</div>
+        <div class="card">VFX en Roblox</div>
+      </div>
     </section>
 
     <section id="sobre-mi" class="section">
-        <h2>Sobre mí</h2>
-        <p>Aficionado al arte ártico y los zorros del ártico.</p>
+      <h2>Sobre mí</h2>
+      <p>Me gusta crear escenas invernales, modelar criaturas y programar gameplay en Lua.</p>
     </section>
 
     <section id="contacto" class="section">
-        <h2>Contacto</h2>
-        <p>Próximamente añadiré mis redes sociales.</p>
+      <h2>Contacto</h2>
+      <p>Próximamente: redes y formulario.</p>
     </section>
+  </main>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
