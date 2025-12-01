@@ -28,6 +28,19 @@ body {
   z-index: 0;
 }
 
+/* Overlay tormenta */
+#stormOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  pointer-events: none;
+  z-index: 1;
+  transition: background 1s ease;
+}
+#stormOverlay.show {
+  background: rgba(255,255,255,0.12); /* leve blanco */
+}
+
 /* Contenido principal */
 .center-menu { position: relative; z-index: 2; text-align: center; width: 100%; max-width: 720px; margin: 120px auto 0; padding: 0 18px; }
 .title { font-size: 2.6rem; color: var(--color-1); text-shadow: 0 0 12px rgba(78,180,220,0.18); margin-bottom: 14px; }
@@ -56,36 +69,33 @@ body {
 .neon { text-shadow: 0 0 12px var(--color-2), 0 0 24px var(--color-3); }
 .resaltado { color: var(--color-3); font-weight: 800; }
 
-/* Zorro animado */
+/* Zorro animado blanco */
 #foxContainer {
   position: fixed;
   width: 120px;
   height: 70px;
   bottom: 70px;
-  left: -150px; /* inicial fuera de pantalla */
+  left: -150px;
   pointer-events: none;
   z-index: 3;
   opacity: 0;
   transition: opacity 1s ease, bottom 1s ease;
 }
-
 #foxContainer.show {
   opacity: 1;
 }
-
 .fox {
   position: relative;
   width: 100%;
   height: 100%;
   transform-origin: center;
 }
-
-.fox .body { position: absolute; width: 66%; height: 57%; left: 16%; top: 28%; background: #000; border-radius: 40px 40px 30px 30px; }
-.fox .head { position: absolute; width: 33%; height: 50%; left: 0; top: 0; background: #000; border-radius: 40px 40px 20px 20px; }
-.fox .ear1, .fox .ear2 { position: absolute; width: 16%; height: 30%; top: -22%; background: #000; border-radius: 4px; }
+.fox .body { background: #fff; position: absolute; width: 66%; height: 57%; left: 16%; top: 28%; border-radius: 40px 40px 30px 30px; }
+.fox .head { background: #fff; position: absolute; width: 33%; height: 50%; left: 0; top: 0; border-radius: 40px 40px 20px 20px; }
+.fox .ear1, .fox .ear2 { background: #fff; position: absolute; width: 16%; height: 30%; top: -22%; border-radius: 4px; }
 .fox .ear1 { left: 5%; transform: rotate(-10deg); }
 .fox .ear2 { left: 22%; transform: rotate(10deg); }
-.fox .tail { position: absolute; width: 50%; height: 35%; right: -38%; top: 36%; background: #000; border-radius: 30px 40px 40px 30px; transform-origin: left center; animation: tailWag 0.8s ease-in-out infinite; }
+.fox .tail { background: #fff; position: absolute; width: 50%; height: 35%; right: -38%; top: 36%; border-radius: 30px 40px 40px 30px; transform-origin: left center; animation: tailWag 0.8s ease-in-out infinite; }
 @keyframes tailWag { 0% { transform: rotate(12deg); } 50% { transform: rotate(-12deg); } 100% { transform: rotate(12deg); } }
 
 /* Responsive */
