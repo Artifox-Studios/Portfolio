@@ -74,10 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -------------------
      ZORRO ANIMADO
   ------------------- */
-
   const foxContainer = document.getElementById('foxContainer');
 
-  // Crear zorro
   const fox = document.createElement('div');
   fox.className = 'fox';
   fox.innerHTML = `
@@ -89,8 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let x = -150;
   let dir = 1;
+  const foxWidth = 120;
   let vx = 160;
-  let jumpAmplitude = Math.min(80, H / 3);
+  let jumpAmplitude = Math.min(80, window.innerHeight / 3);
   let jumpPeriod = 1000;
   let lastTime = null;
 
@@ -121,9 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
       x += dir * vx * (dt / 1000);
 
       const vw = window.innerWidth;
-      const foxW = foxContainer.offsetWidth || 120;
-      const leftEdge = -foxW - 20;
-      const rightEdge = vw - foxW + 20;
+      const leftEdge = -foxWidth - 20;
+      const rightEdge = vw - foxWidth + 20;
 
       if (x >= rightEdge) { dir = -1; x = rightEdge; }
       if (x <= leftEdge) { dir = 1; x = leftEdge; }
@@ -138,7 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(foxLoop);
   }
 
-  // Inicializar posición
   applyTransform(0, dir);
   requestAnimationFrame(foxLoop);
 
