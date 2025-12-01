@@ -1,65 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portfolio Ártico — Zorros & Proyectos</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Ártico</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-  <!-- Fondo aurora -->
-  <div id="aurora-bg"></div>
+    <canvas id="snowCanvas"></canvas>
 
-  <!-- Nieve global -->
-  <canvas id="snowGlobal"></canvas>
-
-  <header>
-    <div class="brand">
-      <div class="logo">AF</div>
-      <div>
-        <div class="title">Portfolio Ártico</div>
-        <div class="muted">Roblox · Blender · VFX</div>
-      </div>
-    </div>
-
-    <button id="menuBtn">☰</button>
-
-    <nav id="navMobile">
-      <a href="#about">Sobre mí</a>
-      <a href="#projects">Proyectos</a>
-      <a href="#gallery">Galería</a>
-      <a href="#contact">Contacto</a>
+    <nav class="menu">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <h1>Hola — soy [Tu Nombre], creador en Roblox & Blender fan de los zorros árticos.</h1>
-        <p>Portfolio con temática de nieve, auroras y criaturas del ártico. Proyectos de Roblox Studio, Blender y VFX.</p>
-
-        <div class="cta">
-          <button class="btn" onclick="scrollToSection('projects')">Ver proyectos</button>
-        </div>
-      </div>
-
-      <div class="card fox-wrap">
-        <div class="fox-portrait">
-          <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80" />
-          <canvas class="snowLocal"></canvas>
-        </div>
-      </div>
+    <section id="inicio" class="section">
+        <h1>Bienvenido a mi Mundo Ártico</h1>
+        <p>Portfolio de mis proyectos en Roblox Studio, Blender y efectos VFX.</p>
     </section>
 
-    <section id="projects" class="projects"></section>
+    <section id="proyectos" class="section">
+        <h2>Mis Proyectos</h2>
+        <div class="card-grid">
+            <div class="card">Roblox Studio</div>
+            <div class="card">Blender</div>
+            <div class="card">VFX Roblox</div>
+        </div>
+    </section>
 
-    <section id="gallery" class="gallery"></section>
-  </main>
+    <section id="sobre-mi" class="section">
+        <h2>Sobre mí</h2>
+        <p>Aficionado al arte ártico y los zorros del ártico.</p>
+    </section>
 
-  <footer>© 2025 — Portfolio Ártico</footer>
+    <section id="contacto" class="section">
+        <h2>Contacto</h2>
+        <p>Próximamente añadiré mis redes sociales.</p>
+    </section>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
