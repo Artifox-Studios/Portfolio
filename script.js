@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* -------------------
-     NIEVE CON PARALLAX
-  ------------------- */
   const canvas = document.getElementById('snowCanvas');
   const ctx = canvas.getContext('2d');
   const stormOverlay = document.getElementById('stormOverlay');
@@ -19,16 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
   let targetCount = BASE_COUNT;
   let flakes = [];
 
+  let mouseX = W/2;
+  let mouseY = H/2;
+
+  // capturar movimiento del ratón
+  window.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
   function initFlakes(n) {
     flakes = [];
     for (let i = 0; i < n; i++) {
-      const depth = Math.random(); // 0 = lejos, 1 = cerca
+      const depth = Math.random(); // 0 lejos, 1 cerca
       const size = 0.8 + depth * 3.2;
       flakes.push({
         x: Math.random() * W,
         y: Math.random() * H,
         r: size,
-        speed: 0.3 + depth * 3, 
+        speed: 0.3 + depth * 3,
         drift: (Math.random() - 0.5) * (0.5 + depth),
         depth
       });
@@ -39,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function step() {
     ctx.clearRect(0, 0, W, H);
 
+    // ajustar cantidad de flakes
     if (flakes.length < targetCount) {
       const add = Math.min(8, targetCount - flakes.length);
       for (let i = 0; i < add; i++) {
@@ -58,15 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     for (let f of flakes) {
+      // efecto parallax según posición del ratón
+      const offsetX = (mouseX - W/2) * f.depth * 0.05;
+      const offsetY = (mouseY - H/2) * f.depth * 0.05;
+
       ctx.beginPath();
       ctx.fillStyle = `rgba(255,255,255,${0.4 + 0.6 * f.depth})`;
-      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      ctx.arc(f.x + offsetX, f.y + offsetY, f.r, 0, Math.PI*2);
       ctx.fill();
 
       f.y += f.speed;
       f.x += Math.sin(f.y * 0.008) * f.drift + Math.cos(f.y * 0.004) * 0.2;
 
-      if (f.y > H + 6) { f.y = -8 - Math.random() * 60; f.x = Math.random() * W; }
+      if (f.y > H + 6) { f.y = -8 - Math.random()*60; f.x = Math.random()*W; }
       if (f.x > W + 10) f.x = -20;
       if (f.x < -20) f.x = W + 10;
     }
@@ -76,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   step();
 
   /* -------------------
-     ZORRO Y TORMENTA
+     Zorro y tormenta
   ------------------- */
   const foxContainer = document.getElementById('foxContainer');
   const fox = document.createElement('div');
@@ -87,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let x = -150, dir = 1;
   const foxWidth = 120;
   let vx = 160;
-  let jumpAmplitude = Math.min(80, H / 3);
+  let jumpAmplitude = Math.min(80,H/3);
   let jumpPeriod = 1000;
   let lastTime = null;
 
@@ -104,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function applyTransform(y, currentDir) {
-    fox.style.transform = `translateY(${-y}px) translateZ(0) scaleX(${currentDir * -1})`;
+    fox.style.transform = `translateY(${-y}px) translateZ(0) scaleX(${currentDir*-1})`;
     foxContainer.style.left = `${Math.round(x)}px`;
   }
 
@@ -134,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!active && Date.now() - lastActivity > 7000) startStorm();
 
     if (active) {
-      x += dir * vx * (dt / 1000);
+      x += dir * vx * (dt/1000);
       const vw = window.innerWidth;
       const leftEdge = -foxWidth - 20;
       const rightEdge = vw - foxWidth + 20;
@@ -142,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (x <= leftEdge) { dir = 1; x = leftEdge; }
 
       const progress = (performance.now() % jumpPeriod) / jumpPeriod;
-      const y = Math.sin(Math.PI * progress) * jumpAmplitude;
+      const y = Math.sin(Math.PI*progress) * jumpAmplitude;
 
       applyTransform(y, dir);
     }
