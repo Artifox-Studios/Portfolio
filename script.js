@@ -10,10 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let W = window.innerWidth;
   let H = window.innerHeight;
 
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   window.addEventListener('resize', resize);
   resize();
 
@@ -38,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function step() {
     ctx.clearRect(0, 0, W, H);
+
+    // Ajustar cantidad de flakes
     if (flakes.length < targetCount) {
       const add = Math.min(8, targetCount - flakes.length);
       for (let i = 0; i < add; i++) {
@@ -72,33 +71,29 @@ document.addEventListener('DOMContentLoaded', () => {
   step();
 
   /* -------------------
-     ZORRO ANIMADO
+     ZORRO Y TORMENTA
   ------------------- */
   const foxContainer = document.getElementById('foxContainer');
 
   const fox = document.createElement('div');
   fox.className = 'fox';
-  fox.innerHTML = `
-    <div class="head"><div class="ear1"></div><div class="ear2"></div></div>
-    <div class="body"></div>
-    <div class="tail"></div>
-  `;
+  fox.innerHTML = `<div class="head"><div class="ear1"></div><div class="ear2"></div></div><div class="body"></div><div class="tail"></div>`;
   foxContainer.appendChild(fox);
 
-  let x = -150;
-  let dir = 1;
+  let x = -150, dir = 1;
   const foxWidth = 120;
   let vx = 160;
-  let jumpAmplitude = Math.min(80, window.innerHeight / 3);
+  let jumpAmplitude = Math.min(80, H / 3);
   let jumpPeriod = 1000;
   let lastTime = null;
 
   let lastActivity = Date.now();
   let active = false;
+  let stormStarted = false;
 
   function markActivity() {
     lastActivity = Date.now();
-    active = false;
+    if (stormStarted) stopStorm();
   }
   ['mousemove','mousedown','touchstart','keydown','scroll'].forEach(e=>{
     window.addEventListener(e, markActivity, {passive:true});
@@ -109,25 +104,38 @@ document.addEventListener('DOMContentLoaded', () => {
     foxContainer.style.left = `${Math.round(x)}px`;
   }
 
+  function startStorm() {
+    if (stormStarted) return;
+    stormStarted = true;
+    targetCount = STORM_COUNT;
+    foxContainer.classList.add('show');
+    active = true;
+  }
+
+  function stopStorm() {
+    if (!stormStarted) return;
+    stormStarted = false;
+    targetCount = BASE_COUNT;
+    foxContainer.classList.remove('show');
+    active = false;
+  }
+
   function foxLoop(ts) {
     if (!lastTime) lastTime = ts;
     const dt = ts - lastTime;
     lastTime = ts;
 
-    if (!active && Date.now() - lastActivity > 7000) active = true;
+    if (!active && Date.now() - lastActivity > 7000) startStorm();
 
     if (active) {
       x += dir * vx * (dt / 1000);
-
       const vw = window.innerWidth;
       const leftEdge = -foxWidth - 20;
       const rightEdge = vw - foxWidth + 20;
-
       if (x >= rightEdge) { dir = -1; x = rightEdge; }
       if (x <= leftEdge) { dir = 1; x = leftEdge; }
 
-      const jumpT = performance.now() % jumpPeriod;
-      const progress = jumpT / jumpPeriod;
+      const progress = (performance.now() % jumpPeriod) / jumpPeriod;
       const y = Math.sin(Math.PI * progress) * jumpAmplitude;
 
       applyTransform(y, dir);
