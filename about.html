@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- CANVAS DE NIEVE -->
+  <canvas id="snowCanvas" aria-hidden="true"></canvas>
+
+  <!-- CONTENIDO CENTRAL -->
+  <div class="center-menu" role="main">
+    <h1 class="title neon">About Me</h1>
+
+    <nav class="menu" role="navigation" aria-label="Menú principal">
+      <a href="index.html" class="neon-btn">Inicio</a>
+      <a href="about.html" class="neon-btn">Sobre mí</a>
+      <a href="projects.html" class="neon-btn">Proyectos</a>
+      <a href="contact.html" class="neon-btn">Contacto</a>
+    </nav>
+
+    <p class="description neon">
+      I'm a enthusiast of Videogames. I touched some game dev tools like 
+      <span class="resaltado">Roblox Studio, Blender and Unity</span>.
+    </p>
+    
+    <h2 class="title neon">Work</h2>
+    
+    <p class="description neon">
+      Right now i'm with a dev team Called Team Lumina developing a Roblox Game. My main job is to do
+      <span class="resaltado">VFX</span>.
+    </p>
+    
+    <h2 class="title neon">Studies</h2>
+    
+    <p class="description neon">
+      I'm on the first year in Vocational Study of 
+      <span class="resaltado">Computer Science</span>.
+    </p>
+  </div>
+
+  <!-- ZORRO ULTRATIERNÍSIMO (SVG embebido) -->
+  <svg id="foxSvg" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="g1" x1="0" x2="1">
+        <stop offset="0" stop-color="#a1d6e2"/>
+        <stop offset="1" stop-color="#4fb7e3"/>
+      </linearGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    <g transform="translate(20,20)" filter="url(#glow)">
+      <!-- cuerpo redondeado -->
+      <ellipse cx="130" cy="110" rx="90" ry="54" fill="#ffffff" stroke="#4fb7e3" stroke-width="1.5"/>
+
+      <!-- oreja izquierda -->
+      <path d="M60 45 Q45 15 85 30 Q65 40 60 45 Z" fill="url(#g1)" stroke="#008fb3" stroke-width="2"/>
+      <!-- oreja derecha -->
+      <path d="M200 45 Q215 15 175 30 Q195 40 200 45 Z" fill="url(#g1)" stroke="#008fb3" stroke-width="2"/>
+
+      <!-- cara -->
+      <path d="M70 80 Q130 30 190 80 Q170 100 130 95 Q90 100 70 80 Z" fill="#eafcff" stroke="#2ea2c2" stroke-width="1.6"/>
+
+      <!-- ojos grandes y brillantes (corregidos para parpadeo) -->
+      <g class="eye" transform="translate(115,78)">
+        <circle cx="0" cy="0" r="6" fill="#002b33"/>
+        <circle cx="1" cy="-1" r="2" fill="#ffffff"/>
+      </g>
+
+      <g class="eye" transform="translate(150,78)">
+        <circle cx="0" cy="0" r="6" fill="#002b33"/>
+        <circle cx="1" cy="-1" r="2" fill="#ffffff"/>
+      </g>
+
+      <!-- mejillas sonrojadas -->
+      <circle cx="105" cy="88" r="4" fill="#81c8e4" opacity="0.5"/>
+      <circle cx="155" cy="88" r="4" fill="#81c8e4" opacity="0.5"/>
+
+      <!-- nariz -->
+      <circle cx="132" cy="92" r="3.5" fill="#003a45"/>
+
+      <!-- cola grande y esponjosa -->
+      <path d="M220 120 Q270 90 290 120 Q275 155 220 140 Z" fill="#ffffff" stroke="#4fb7e3" stroke-width="2"/>
+
+      <!-- detalles de hielo -->
+      <rect x="110" y="30" width="6" height="18" transform="rotate(15 113 39)" fill="#81c8e4" opacity="0.6"/>
+      <rect x="150" y="22" width="8" height="22" transform="rotate(-10 154 33)" fill="#a1d6e2" opacity="0.5"/>
+    </g>
+  </svg>
+
+  <script src="script.js"></script>
+</body>
+</html>
