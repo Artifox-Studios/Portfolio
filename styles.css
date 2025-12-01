@@ -18,7 +18,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* canvas - detrás del contenido */
+/* canvas */
 #snowCanvas {
   position: fixed;
   inset: 0;
@@ -76,25 +76,27 @@ body {
   transform: rotate(-6deg) scale(1);
 }
 
-/* Animaciones internas del zorro */
-@keyframes blink {
-  0%, 20%, 40%, 60%, 80%, 100% { transform: scaleY(1); }
-  10%, 50%, 90% { transform: scaleY(0.1); }
-}
-#foxSvg circle[fill="#002b33"] {
+/* Animaciones ojos y cola */
+.eye {
   transform-origin: center center;
   animation: blink 5s infinite;
 }
 
-@keyframes tailSwing {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-6deg); }
-  50% { transform: rotate(4deg); }
-  75% { transform: rotate(-3deg); }
+@keyframes blink {
+  0%,20%,40%,60%,80%,100% { transform: scaleY(1); }
+  10%,50%,90% { transform: scaleY(0.1); }
 }
+
 #foxSvg path[fill="#ffffff"][stroke="#4fb7e3"] {
   transform-origin: 220px 120px;
   animation: tailSwing 3s infinite ease-in-out;
+}
+
+@keyframes tailSwing {
+  0%,100% { transform: rotate(0deg); }
+  25% { transform: rotate(-6deg); }
+  50% { transform: rotate(4deg); }
+  75% { transform: rotate(-3deg); }
 }
 
 /* Responsive */
