@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Ártico</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mi Portfolio Ártico</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-  <!-- Contenedor principal -->
-  <div class="center-menu">
+<body>
+  <!-- CANVAS DE NIEVE -->
+  <canvas id="snowCanvas" aria-hidden="true"></canvas>
+
+  <!-- CONTENIDO CENTRAL -->
+  <div class="center-menu" role="main">
     <h1 class="title neon">Mi Portfolio Ártico</h1>
 
-    <nav class="menu">
+    <nav class="menu" role="navigation" aria-label="Menú principal">
       <a href="index.html" class="neon-btn">Inicio</a>
       <a href="about.html" class="neon-btn">Sobre mí</a>
       <a href="projects.html" class="neon-btn">Proyectos</a>
@@ -20,16 +23,47 @@
     </nav>
 
     <p class="description neon">
-      Bienvenido a mi mundo ártico ❄️ donde muestro mis proyectos de  
+      Bienvenido a mi mundo ártico ❄️ donde muestro mis proyectos de
       <span class="resaltado">Roblox Studio, Blender y VFX</span>.
     </p>
   </div>
 
-  <!-- Zorro ártico -->
-  <img id="fox" src="https://i.imgur.com/3tP7kX6.png" alt="Zorro ártico" />
+  <!-- ZORRO (SVG embebido, confiable) -->
+  <!-- No necesita archivo externo -->
+  <svg id="foxSvg" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Simple ilustración estilizada de zorro ártico en colores de la paleta -->
+    <defs>
+      <linearGradient id="g1" x1="0" x2="1">
+        <stop offset="0" stop-color="#a1d6e2"/>
+        <stop offset="1" stop-color="#4fb7e3"/>
+      </linearGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
 
-  <!-- Canvas de nieve -->
-  <canvas id="snowCanvas"></canvas>
+    <!-- cuerpo -->
+    <g transform="translate(20,20)" filter="url(#glow)">
+      <ellipse cx="130" cy="110" rx="90" ry="54" fill="#ffffff" />
+      <!-- oreja izquierda -->
+      <path d="M60 45 L40 10 L85 30 Z" fill="url(#g1)" stroke="#008fb3" stroke-width="2"/>
+      <!-- oreja derecha -->
+      <path d="M200 45 L220 10 L175 30 Z" fill="url(#g1)" stroke="#008fb3" stroke-width="2"/>
+      <!-- cara -->
+      <path d="M70 80 Q130 30 190 80 Q170 95 130 95 Q90 95 70 80 Z" fill="#eafcff" stroke="#2ea2c2" stroke-width="1.6"/>
+      <!-- ojo -->
+      <circle cx="115" cy="78" r="4" fill="#002b33"/>
+      <circle cx="150" cy="78" r="4" fill="#002b33"/>
+      <!-- nariz -->
+      <circle cx="132" cy="92" r="3.5" fill="#003a45"/>
+      <!-- cola -->
+      <path d="M220 120 Q270 100 290 120 Q270 150 220 140 Z" fill="#ffffff" stroke="#4fb7e3" stroke-width="2"/>
+      <!-- pequeños detalles de hielo -->
+      <rect x="110" y="30" width="6" height="18" transform="rotate(15 113 39)" fill="#81c8e4" opacity="0.6"/>
+      <rect x="150" y="22" width="8" height="22" transform="rotate(-10 154 33)" fill="#a1d6e2" opacity="0.5"/>
+    </g>
+  </svg>
 
   <script src="script.js"></script>
 </body>
