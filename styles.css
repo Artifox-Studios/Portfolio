@@ -1,108 +1,66 @@
-:root {
-  --color-1: #a1d6e2;
-  --color-2: #81c8e4;
-  --color-3: #4fb7e3;
-  --color-4: #2ea2c2;
-  --color-5: #008fb3;
-}
-
-/* Reset y fondo */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html,body { height: 100%; }
-body {
-  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-  background: linear-gradient(#071a25, #00111a);
-  color: white;
-  overflow: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* canvas */
-#snowCanvas {
+/* Zorro animado */
+#foxContainer {
   position: fixed;
-  inset: 0;
+  width: 120px;
+  height: 70px;
+  bottom: 70px;
+  left: -150px; /* inicial fuera de pantalla */
+  pointer-events: none;
+  z-index: 3;
+}
+
+.fox {
+  position: relative;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  z-index: 0;
+  transform-origin: center;
 }
 
-/* Contenido principal */
-.center-menu { position: relative; z-index: 2; text-align: center; width: 100%; max-width: 720px; margin: 120px auto 0; padding: 0 18px; }
-.title { font-size: 2.6rem; color: var(--color-1); text-shadow: 0 0 12px rgba(78,180,220,0.18); margin-bottom: 14px; }
-.description { margin-top: 10px; color: #e9fbff; max-width: 720px; margin-left: auto; margin-right: auto; }
-
-/* Menu central neon */
-.menu { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 10px 0 18px; }
-.neon-btn {
-  display:inline-block;
-  text-decoration:none;
-  color: #fff;
-  background: rgba(0,0,0,0.22);
-  border: 2px solid var(--color-3);
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-weight: 700;
-  box-shadow: 0 0 10px rgba(79,183,227,0.12);
-  transition: transform .14s ease, box-shadow .14s ease, background .14s;
-}
-.neon-btn:hover, .neon-btn:focus {
-  transform: translateY(-4px);
-  background: linear-gradient(90deg, var(--color-3), var(--color-5));
-  box-shadow: 0 8px 30px rgba(46,162,194,0.18);
-  outline: none;
-}
-.neon { text-shadow: 0 0 12px var(--color-2), 0 0 24px var(--color-3); }
-.resaltado { color: var(--color-3); font-weight: 800; }
-
-/* Zorro ultratierno */
-#foxSvg {
-  position: fixed;
-  width: 320px;
-  height: auto;
-  bottom: -300px;
-  right: -300px;
-  opacity: 0;
-  z-index: 3;
-  transition: all 1.2s cubic-bezier(.2,.9,.2,1);
-  filter: drop-shadow(0 8px 20px rgba(0,60,80,0.45));
-  pointer-events: none;
-}
-#foxSvg.show {
-  bottom: 12px;
-  right: 12px;
-  opacity: 1;
-  transform: rotate(-6deg) scale(1);
+.fox .body {
+  position: absolute;
+  width: 66%;
+  height: 57%;
+  left: 16%;
+  top: 28%;
+  background: #000;
+  border-radius: 40px 40px 30px 30px;
 }
 
-/* Animaciones ojos y cola */
-.eye {
-  transform-origin: center center;
-  animation: blink 5s infinite;
+.fox .head {
+  position: absolute;
+  width: 33%;
+  height: 50%;
+  left: 0;
+  top: 0;
+  background: #000;
+  border-radius: 40px 40px 20px 20px;
 }
 
-@keyframes blink {
-  0%,20%,40%,60%,80%,100% { transform: scaleY(1); }
-  10%,50%,90% { transform: scaleY(0.1); }
+.fox .ear1, .fox .ear2 {
+  position: absolute;
+  width: 16%;
+  height: 30%;
+  top: -22%;
+  background: #000;
+  border-radius: 4px;
+}
+.fox .ear1 { left: 5%; transform: rotate(-10deg); }
+.fox .ear2 { left: 22%; transform: rotate(10deg); }
+
+.fox .tail {
+  position: absolute;
+  width: 50%;
+  height: 35%;
+  right: -38%;
+  top: 36%;
+  background: #000;
+  border-radius: 30px 40px 40px 30px;
+  transform-origin: left center;
+  animation: tailWag 0.8s ease-in-out infinite;
 }
 
-#foxSvg path[fill="#ffffff"][stroke="#4fb7e3"] {
-  transform-origin: 220px 120px;
-  animation: tailSwing 3s infinite ease-in-out;
-}
-
-@keyframes tailSwing {
-  0%,100% { transform: rotate(0deg); }
-  25% { transform: rotate(-6deg); }
-  50% { transform: rotate(4deg); }
-  75% { transform: rotate(-3deg); }
-}
-
-/* Responsive */
-@media (max-width: 680px) {
-  .title { font-size: 1.9rem; margin-top: 60px; }
-  #foxSvg { width: 220px; bottom: -220px; right: -220px; }
-  .menu { gap: 10px; }
-  .neon-btn { padding: 9px 14px; font-size: 0.95rem; }
+@keyframes tailWag {
+  0% { transform: rotate(12deg); }
+  50% { transform: rotate(-12deg); }
+  100% { transform: rotate(12deg); }
 }
