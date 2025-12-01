@@ -1,116 +1,82 @@
-/* ========== NAVEGACIÓN MÓVIL ========== */
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("navMobile");
-menuBtn.onclick = () => nav.classList.toggle("show");
-
-/* ========== FUNCIÓN SCROLL ========== */
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
-
-/* ========== SISTEMA DE NIEVE GLOBAL ========== */
-const canvas = document.getElementById("snowGlobal");
+const canvas = document.getElementById("snowCanvas");
 const ctx = canvas.getContext("2d");
 
-function sizeCanvas(){
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+let width, height;
+
+// ------- RESIZE STABLE -------
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
 }
-sizeCanvas();
-window.onresize = sizeCanvas;
+resize();
+window.addEventListener("resize", resize);
 
-let snow = [];
-let snowCount = 140;
+// ------- SNOW SETUP -------
+const MAX_FLAKES = 150;
+let snowflakes = [];
 
-function createSnow(){
-  snow = [];
-  for(let i=0;i<snowCount;i++){
-    snow.push({
-      x: Math.random()*canvas.width,
-      y: Math.random()*canvas.height,
-      size: Math.random()*3+1,
-      speed: Math.random()*1+0.4
-    });
-  }
+function initSnow() {
+    snowflakes = [];
+    for (let i = 0; i < MAX_FLAKES; i++) {
+        snowflakes.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: 1 + Math.random() * 2.5,
+            speed: 0.5 + Math.random() * 1,
+            drift: Math.random() * 1.5
+        });
+    }
 }
-createSnow();
+initSnow();
 
-function drawSnow(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = "white";
+// ------- DRAW SNOW -------
+function drawSnow() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = "white";
 
-  snow.forEach(f => {
-    ctx.beginPath();
-    ctx.arc(f.x,f.y,f.size,0,Math.PI*2);
-    ctx.fill();
-    f.y += f.speed;
-    if(f.y > canvas.height) f.y = -10;
-  });
+    for (let f of snowflakes) {
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        ctx.fill();
 
-  requestAnimationFrame(drawSnow);
-}
-drawSnow();
+        f.y += f.speed;
+        f.x += Math.sin(f.y * 0.01) * f.drift;
 
-/* ========== INACTIVIDAD → TORMENTA ========== */
-let inactivityTime = 0;
-let stormMode = false;
-
-setInterval(() => {
-  inactivityTime += 1;
-
-  if(inactivityTime > 15 && !stormMode){
-    snowCount = 500;  // MUCHOS copos
-    createSnow();
-    stormMode = true;
-  }
-}, 1000);
-
-function resetActivity(){
-  inactivityTime = 0;
-  if(stormMode){
-    snowCount = 140;
-    createSnow();
-    stormMode = false;
-  }
+        if (f.y > height) f.y = -10;
+        if (f.x > width) f.x = 0;
+        if (f.x < 0) f.x = width;
+    }
 }
 
-window.onmousemove = resetActivity;
-window.ontouchstart = resetActivity;
-window.onkeydown = resetActivity;
+// ------- INACTIVITY OVERLAY -------
+let lastActivity = Date.now();
+let overlayOpacity = 0;
 
-/* ========== NIEVE LOCAL EN FOTO DEL ZORRO ========== */
-document.querySelectorAll(".snowLocal").forEach(localCanvas => {
-  const localCtx = localCanvas.getContext("2d");
+function resetInactivity() {
+    lastActivity = Date.now();
+    overlayOpacity = 0;
+}
 
-  function sizeLocal(){
-    localCanvas.width = localCanvas.clientWidth;
-    localCanvas.height = localCanvas.clientHeight;
-  }
-  sizeLocal();
-  window.addEventListener("resize", sizeLocal);
+["mousemove", "mousedown", "keydown", "touchstart"].forEach(ev =>
+    window.addEventListener(ev, resetInactivity)
+);
 
-  let flakes = [];
-  for(let i=0;i<40;i++){
-    flakes.push({
-      x: Math.random()*localCanvas.width,
-      y: Math.random()*localCanvas.height,
-      s: Math.random()*2+1
-    });
-  }
+// ------- ANIMATION LOOP -------
+function animate() {
+    drawSnow();
 
-  function animate(){
-    localCtx.clearRect(0,0,localCanvas.width,localCanvas.height);
-    localCtx.fillStyle="white";
+    // Onda de nieve por inactividad
+    const idle = Date.now() - lastActivity;
 
-    flakes.forEach(f=>{
-      localCtx.beginPath();
-      localCtx.arc(f.x,f.y,f.s,0,Math.PI*2);
-      localCtx.fill();
-      f.y += f.s*0.6;
-      if(f.y > localCanvas.height) f.y = -5;
-    });
+    if (idle > 3000) {
+        overlayOpacity += 0.005;
+        if (overlayOpacity > 1) overlayOpacity = 1;
+
+        ctx.fillStyle = `rgba(255,255,255,${overlayOpacity})`;
+        ctx.fillRect(0, 0, width, height);
+    }
 
     requestAnimationFrame(animate);
-  }
-  animate();
-});
+}
+
+animate();
