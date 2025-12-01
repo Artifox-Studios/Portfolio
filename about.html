@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>About Me</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- CANVAS DE NIEVE -->
+  <canvas id="snowCanvas" aria-hidden="true"></canvas>
+
+  <!-- Overlay de tormenta -->
+  <div id="stormOverlay"></div>
+
+  <!-- CONTENIDO CENTRAL -->
+  <div class="center-menu" role="main">
+    <h1 class="title neon">About Me</h1>
+
+    <nav class="menu" role="navigation" aria-label="Menú principal">
+      <a href="index.html" class="neon-btn">Start</a>
+      <a href="about.html" class="neon-btn">About Me</a>
+      <a href="projects.html" class="neon-btn">Projects</a>
+      <a href="contact.html" class="neon-btn">Contact</a>
+    </nav>
+
+    <p class="description neon">
+      I'm a enthusiast of Videogames. I touched some game dev tools like 
+      <span class="resaltado">Roblox Studio, Blender and Unity</span>.
+    </p>
+    
+    <h2 class="title neon">Work</h2>
+    
+    <p class="description neon">
+      Right now i'm with a dev team Called Team Lumina developing a Roblox Game. My main job is to do
+      <span class="resaltado">VFX</span>.
+    </p>
+    
+    <h2 class="title neon">Studies</h2>
+    
+    <p class="description neon">
+      I'm on the first year in Vocational Study of 
+      <span class="resaltado">Computer Science</span>.
+    </p>
+  </div>
+
+  <!-- Contenedor del zorro -->
+  <div id="foxContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
