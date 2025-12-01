@@ -22,13 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function initFlakes(n) {
     flakes = [];
     for (let i = 0; i < n; i++) {
-      const size = 0.8 + Math.random() * 3.2;
+      const depth = Math.random(); // 0 = lejos, 1 = cerca
+      const size = 0.8 + depth * 3.2;
       flakes.push({
         x: Math.random() * W,
         y: Math.random() * H,
         r: size,
-        speed: 0.3 + size * 0.4, // Parallax: flakes grandes más rápidos
-        drift: (Math.random() - 0.5) * 1.8
+        speed: 0.3 + depth * 3, 
+        drift: (Math.random() - 0.5) * (0.5 + depth),
+        depth
       });
     }
   }
@@ -40,13 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (flakes.length < targetCount) {
       const add = Math.min(8, targetCount - flakes.length);
       for (let i = 0; i < add; i++) {
-        const size = 0.8 + Math.random() * 3.2;
+        const depth = Math.random();
+        const size = 0.8 + depth * 3.2;
         flakes.push({
           x: Math.random() * W,
           y: -10 - Math.random() * 100,
           r: size,
-          speed: 0.3 + size * 0.4,
-          drift: (Math.random() - 0.5) * 2
+          speed: 0.3 + depth * 3,
+          drift: (Math.random() - 0.5) * (0.5 + depth),
+          depth
         });
       }
     } else if (flakes.length > targetCount) {
@@ -55,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     for (let f of flakes) {
       ctx.beginPath();
-      ctx.fillStyle = 'rgba(255,255,255,0.95)';
+      ctx.fillStyle = `rgba(255,255,255,${0.4 + 0.6 * f.depth})`;
       ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
       ctx.fill();
 
