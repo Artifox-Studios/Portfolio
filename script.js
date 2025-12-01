@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* -------------------
-     NIEVE
+     NIEVE CON PARALLAX
   ------------------- */
   const canvas = document.getElementById('snowCanvas');
   const ctx = canvas.getContext('2d');
+  const stormOverlay = document.getElementById('stormOverlay');
   if (!ctx) return console.warn('Canvas 2D no disponible.');
 
   let W = window.innerWidth;
   let H = window.innerHeight;
-
   function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
   window.addEventListener('resize', resize);
   resize();
@@ -22,11 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function initFlakes(n) {
     flakes = [];
     for (let i = 0; i < n; i++) {
+      const size = 0.8 + Math.random() * 3.2;
       flakes.push({
         x: Math.random() * W,
         y: Math.random() * H,
-        r: 0.8 + Math.random() * 3.2,
-        speed: 0.3 + Math.random() * 1.6,
+        r: size,
+        speed: 0.3 + size * 0.4, // Parallax: flakes grandes más rápidos
         drift: (Math.random() - 0.5) * 1.8
       });
     }
@@ -36,15 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function step() {
     ctx.clearRect(0, 0, W, H);
 
-    // Ajustar cantidad de flakes
     if (flakes.length < targetCount) {
       const add = Math.min(8, targetCount - flakes.length);
       for (let i = 0; i < add; i++) {
+        const size = 0.8 + Math.random() * 3.2;
         flakes.push({
           x: Math.random() * W,
           y: -10 - Math.random() * 100,
-          r: 0.8 + Math.random() * 3.2,
-          speed: 0.6 + Math.random() * 2.6,
+          r: size,
+          speed: 0.3 + size * 0.4,
           drift: (Math.random() - 0.5) * 2
         });
       }
@@ -74,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
      ZORRO Y TORMENTA
   ------------------- */
   const foxContainer = document.getElementById('foxContainer');
-
   const fox = document.createElement('div');
   fox.className = 'fox';
   fox.innerHTML = `<div class="head"><div class="ear1"></div><div class="ear2"></div></div><div class="body"></div><div class="tail"></div>`;
@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     stormStarted = true;
     targetCount = STORM_COUNT;
     foxContainer.classList.add('show');
+    stormOverlay.classList.add('show');
     active = true;
   }
 
@@ -117,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     stormStarted = false;
     targetCount = BASE_COUNT;
     foxContainer.classList.remove('show');
+    stormOverlay.classList.remove('show');
     active = false;
   }
 
