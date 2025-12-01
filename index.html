@@ -4,20 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Portfolio Ártico — Zorros & Proyectos</title>
-  <meta name="description" content="Portfolio personal con temática ártica: Roblox Studio, Blender y VFX." />
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+  <!-- Fondo aurora -->
+  <div id="aurora-bg"></div>
+
+  <!-- Nieve global -->
+  <canvas id="snowGlobal"></canvas>
+
   <header>
     <div class="brand">
       <div class="logo">AF</div>
       <div>
-        <div style="font-weight:800;color:white">Portfolio Ártico</div>
-        <div class="muted">Zorros árticos · Roblox · Blender · VFX</div>
+        <div class="title">Portfolio Ártico</div>
+        <div class="muted">Roblox · Blender · VFX</div>
       </div>
     </div>
-    <nav>
+
+    <button id="menuBtn">☰</button>
+
+    <nav id="navMobile">
       <a href="#about">Sobre mí</a>
       <a href="#projects">Proyectos</a>
       <a href="#gallery">Galería</a>
@@ -28,102 +37,28 @@
   <main>
     <section class="hero">
       <div>
-        <h1>Hola — soy [Tu Nombre], creador en Roblox & Blender con cariño por los zorros árticos.</h1>
-        <p>Portfolio con proyectos de Roblox Studio, escenas de Blender y VFX. Todo con temática de nieve y auroras.</p>
+        <h1>Hola — soy [Tu Nombre], creador en Roblox & Blender fan de los zorros árticos.</h1>
+        <p>Portfolio con temática de nieve, auroras y criaturas del ártico. Proyectos de Roblox Studio, Blender y VFX.</p>
 
         <div class="cta">
           <button class="btn" onclick="scrollToSection('projects')">Ver proyectos</button>
-          <a class="btn ghost" href="#contact">Contactar</a>
-        </div>
-
-        <div style="margin-top:18px" class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div style="font-weight:800;color:white">Especialidades</div>
-              <div class="muted">Roblox Studio · Modelado (Blender) · VFX · Animación</div>
-            </div>
-            <div class="muted">Disponible para encargos</div>
-          </div>
         </div>
       </div>
 
       <div class="card fox-wrap">
         <div class="fox-portrait">
-          <img id="foxImg" src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80" alt="Zorro Ártico"/>
-          <canvas class="snow-canvas" id="snowCanvas"></canvas>
-        </div>
-        <div style="width:100%;display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div style="font-weight:700;color:white">Zorro Ártico — Mascota</div>
-            <div class="muted">Haz clic en los proyectos para ver más detalles.</div>
-          </div>
-          <button class="btn ghost" onclick="downloadStub()">Descargar CV</button>
+          <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?q=80" />
+          <canvas class="snowLocal"></canvas>
         </div>
       </div>
     </section>
 
-    <!-- PROYECTOS -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects"></section>
 
-      <article class="project card">
-        <div class="thumb"><img src="https://picsum.photos/seed/roblox1/800/600"></div>
-        <h3>Isla Ártica — Juego (Roblox Studio)</h3>
-        <div class="muted">Mapa de supervivencia con nieve dinámica.</div>
-        <div class="tags">
-          <span class="tag">Roblox Studio</span>
-          <span class="tag">LUA</span>
-          <span class="tag">Multijugador</span>
-        </div>
-        <div class="proj-buttons">
-          <button class="btn" onclick="openModal(this)" 
-            data-title="Isla Ártica"
-            data-desc="Map y scripts LUA."
-            data-img="https://picsum.photos/seed/roblox1/1600/900">Ver</button>
-
-          <a class="btn ghost" href="https://www.roblox.com/" target="_blank">Roblox</a>
-        </div>
-      </article>
-
-      <article class="project card">
-        <div class="thumb"><img src="https://picsum.photos/seed/blender1/800/600"></div>
-        <h3>Modelo: Zorro Ártico (Blender)</h3>
-        <div class="muted">Modelo PBR con rig listo para animar.</div>
-        <div class="tags">
-          <span class="tag">Blender</span>
-          <span class="tag">Modelado</span>
-          <span class="tag">Rigging</span>
-        </div>
-        <div class="proj-buttons">
-          <button class="btn" onclick="openModal(this)"
-            data-title="Zorro Ártico - Blender"
-            data-desc="Modelo PBR y rig."
-            data-img="https://picsum.photos/seed/blender1/1600/900">Ver</button>
-
-          <a class="btn ghost" href="#" target="_blank">Descargar .blend</a>
-        </div>
-      </article>
-
-    </section>
-
-    <!-- GALERÍA -->
-    <section id="gallery" style="padding:40px 4vw">
-      <div class="card">
-        <h2 style="color:white;margin-top:0">Galería</h2>
-        <p class="muted">Renders y capturas.</p>
-
-        <div class="gallery-grid">
-          <img src="https://picsum.photos/seed/gallery1/800/600">
-          <img src="https://picsum.photos/seed/gallery2/800/600">
-          <img src="https://picsum.photos/seed/gallery3/800/600">
-          <img src="https://picsum.photos/seed/gallery4/800/600">
-        </div>
-      </div>
-    </section>
+    <section id="gallery" class="gallery"></section>
   </main>
 
-  <footer>
-    © 2025 · Portfolio Ártico — Creado por [Tu Nombre]
-  </footer>
+  <footer>© 2025 — Portfolio Ártico</footer>
 
   <script src="script.js"></script>
 </body>
