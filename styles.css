@@ -105,6 +105,3 @@ body {
   .menu { gap: 10px; }
   .neon-btn { padding: 9px 14px; font-size: 0.95rem; }
 }
-footer, .site-footer {
-  display: none !important;
-}
