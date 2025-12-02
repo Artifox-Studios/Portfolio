@@ -168,24 +168,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const scrollContainer = document.getElementById('customScroll');
 const scrollThumb = document.getElementById('scrollThumb');
-const scrollWrapper = document.getElementById('scrollWrapper');
 
 function updateThumb() {
-  const pageHeight = scrollWrapper.scrollHeight;
-  const viewHeight = scrollWrapper.clientHeight;
+  const pageHeight = document.body.scrollHeight;
+  const viewHeight = window.innerHeight;
   const scrollRatio = viewHeight / pageHeight;
-  const thumbHeight = Math.max(scrollRatio * viewHeight, 40);
+  const thumbHeight = Math.max(scrollRatio * viewHeight, 40); // mínimo 40px
   scrollThumb.style.height = thumbHeight + 'px';
-
-  const scrollTop = scrollWrapper.scrollTop;
+  
+  const scrollTop = window.scrollY;
   const maxTop = viewHeight - thumbHeight;
   scrollThumb.style.top = Math.min(scrollTop / (pageHeight - viewHeight) * maxTop, maxTop) + 'px';
 }
 
-scrollWrapper.addEventListener('scroll', updateThumb);
+// Actualizar al hacer scroll o resize
+window.addEventListener('scroll', updateThumb);
 window.addEventListener('resize', updateThumb);
 updateThumb();
 
+// Arrastrar el thumb
 let isDragging = false;
 let startY, startTop;
 
@@ -204,14 +205,16 @@ window.addEventListener('mouseup', () => {
 window.addEventListener('mousemove', e => {
   if (!isDragging) return;
   const delta = e.clientY - startY;
-  const viewHeight = scrollWrapper.clientHeight;
-  const pageHeight = scrollWrapper.scrollHeight;
+  const viewHeight = window.innerHeight;
+  const pageHeight = document.body.scrollHeight;
   const thumbHeight = parseFloat(scrollThumb.style.height);
   let newTop = startTop + delta;
   newTop = Math.max(0, Math.min(viewHeight - thumbHeight, newTop));
   scrollThumb.style.top = newTop + 'px';
-
+  
+  // Scroll de la página
   const scrollRatio = newTop / (viewHeight - thumbHeight);
-  scrollWrapper.scrollTop = scrollRatio * (pageHeight - viewHeight);
+  window.scrollTo({ top: scrollRatio * (pageHeight - viewHeight) });
 });
+
 
