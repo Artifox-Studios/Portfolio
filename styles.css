@@ -156,8 +156,24 @@ body::-webkit-scrollbar {
   background: transparent;
 }
 
-.Logo {
+.image-container {
+  display: flex;
+  justify-content: center; /* centrar la imagen */
+  margin: 30px 0;
+  position: relative;
+}
+
+.image-container img {
   width: 100%;
-  max-width: 400px;
-  border-radius: 10px; /* bordes redondeados */
+  max-width: 400px;       /* tamaño máximo */
+  border-radius: 15px;    /* bordes redondeados */
+  box-shadow: 0 0 20px #81c8e4, 0 0 40px #2ea2c2; /* resplandor azul */
+  border: 2px solid rgba(46, 162, 194, 0.7);     /* borde tipo hielo */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* efecto al pasar el ratón */
+.image-container img:hover {
+  transform: scale(1.05); /* leve zoom */
+  box-shadow: 0 0 30px #81c8e4, 0 0 60px #2ea2c2, 0 0 80px #4fb7e3;
 }
