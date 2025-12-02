@@ -138,3 +138,14 @@ body {
   box-shadow: 0 0 20px #81c8e4, 0 0 40px #2ea2c2, 0 0 60px #2ea2c2;
   background: linear-gradient(to bottom, #4fb7e3, #008fb3);
 }
+
+/* Ocultar scrollbar nativa en todos los navegadores */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+body::-webkit-scrollbar {
+  width: 0;  /* Chrome, Safari y Opera */
+  background: transparent;
+}
