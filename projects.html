@@ -5,7 +5,118 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Projects</title>
   <link rel="icon" href="Fotos/1000107561.png" type="image/png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261009-3">
+  <style>
+    /* Estilos críticos de Projects: también aquí para evitar CSS antiguo en caché */
+    .projects-page {
+      width: calc(100% - 36px) !important;
+      max-width: 1160px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .projects-page .projects-accordion {
+      width: 100% !important;
+      max-width: none !important;
+    }
+    .projects-page .project-summary,
+    .projects-page .category-summary {
+      display: flex !important;
+      align-items: center !important;
+      line-height: 1.2 !important;
+    }
+    .projects-page .project-chevron {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex: 0 0 42px !important;
+      width: 42px !important;
+      height: 42px !important;
+      border: 0 !important;
+      margin: 0 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+    .projects-page .project-chevron::before {
+      content: "" !important;
+      display: block !important;
+      width: 15px !important;
+      height: 15px !important;
+      border-right: 3px solid #81c8e4 !important;
+      border-bottom: 3px solid #81c8e4 !important;
+      transform: rotate(-45deg);
+      filter: drop-shadow(0 0 5px #4fb7e3);
+      transition: transform .22s ease;
+    }
+    .projects-page details[open] > summary .project-chevron::before {
+      transform: rotate(45deg);
+    }
+    .projects-page .category-summary {
+      min-height: 76px !important;
+      gap: 14px !important;
+      padding: 16px 20px !important;
+      color: #a1d6e2 !important;
+    }
+    .projects-page .category-summary > span:not(.project-chevron):not(.category-count) {
+      color: #a1d6e2 !important;
+      font-size: clamp(1.5rem, 3vw, 2rem) !important;
+      font-weight: 800 !important;
+      letter-spacing: .04em !important;
+      line-height: 1.15 !important;
+      text-shadow: 0 0 12px #81c8e4, 0 0 24px #4fb7e3 !important;
+    }
+    .projects-page .media-grid {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) !important;
+      gap: 22px !important;
+      padding: 12px 0 22px !important;
+    }
+    .projects-page .media-frame {
+      position: relative !important;
+      width: 100% !important;
+      aspect-ratio: 16 / 9 !important;
+      overflow: hidden !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+    .projects-page .media-frame iframe {
+      position: absolute !important;
+      inset: 0 !important;
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+    @media (max-width: 680px) {
+      .projects-page {
+        width: calc(100% - 20px) !important;
+      }
+      .projects-page .project-chevron {
+        flex-basis: 32px !important;
+        width: 32px !important;
+        height: 32px !important;
+      }
+      .projects-page .project-chevron::before {
+        width: 12px !important;
+        height: 12px !important;
+      }
+      .projects-page .category-summary {
+        min-height: 66px !important;
+        gap: 9px !important;
+        padding: 13px 10px !important;
+      }
+      .projects-page .category-summary > span:not(.project-chevron):not(.category-count) {
+        font-size: clamp(1.25rem, 5.2vw, 1.55rem) !important;
+      }
+      .projects-page .media-grid {
+        padding: 8px 0 16px !important;
+        gap: 16px !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
