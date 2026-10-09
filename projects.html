@@ -9,136 +9,96 @@
 </head>
 
 <body>
-
   <div id="scrollWrapper">
-    
-  <!-- CANVAS DE NIEVE -->
-  <canvas id="snowCanvas" aria-hidden="true"></canvas>
+    <!-- CANVAS DE NIEVE -->
+    <canvas id="snowCanvas" aria-hidden="true"></canvas>
 
-  <!-- Overlay de tormenta -->
-  <div id="stormOverlay"></div>
+    <!-- Overlay de tormenta -->
+    <div id="stormOverlay"></div>
 
-  <!-- CONTENIDO CENTRAL -->
-  <div class="center-menu" role="main">
-   
-    <h1 class="title neon">Projects</h1>
-   
-    <nav class="menu" role="navigation" aria-label="Menú principal">
-      <a href="index.html" class="neon-btn">Start</a>
-      <a href="about.html" class="neon-btn">About Me</a>
-      <a href="projects.html" class="neon-btn">Projects</a>
-      <a href="contact.html" class="neon-btn">Contact</a>
-      <a href="socialmedia.html" class="neon-btn">Social Media</a>
-    </nav>
+    <!-- CONTENIDO CENTRAL -->
+    <main class="center-menu">
+      <h1 class="title neon">Projects</h1>
 
-    <p><i>I recomend you to check the contact page</i></p>
+      <nav class="menu" aria-label="Menú principal">
+        <a href="index.html" class="neon-btn">Start</a>
+        <a href="about.html" class="neon-btn">About Me</a>
+        <a href="projects.html" class="neon-btn">Projects</a>
+        <a href="contact.html" class="neon-btn">Contact</a>
+        <a href="socialmedia.html" class="neon-btn">Social Media</a>
+      </nav>
 
-    <br><br>
+      <p><i>I recomend you to check the contact page</i></p>
 
-    <details>
-      <summary><h2 class="title neon"><u> Roblox Studio </u></h2></summary>
+      <section class="projects-accordion" aria-label="Projectos">
+        <details class="project-group">
+          <summary class="project-summary">
+            <span class="project-chevron" aria-hidden="true"></span>
+            <span class="title neon project-title">ROBLOX STUDIO</span>
+          </summary>
 
-      <details>
-        <summary><h3 class="title neon">VFX</h3></summary>
-          <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-            <iframe src="https://medal.tv/es/games/roblox-studio/clip/m5IzbRX7IMJCgS_S8" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe>
+          <div class="project-content">
+            <details class="category-group">
+              <summary class="category-summary">
+                <span class="project-chevron" aria-hidden="true"></span>
+                <span>VFX</span>
+                <span class="category-count">7 videos</span>
+              </summary>
+              <div class="media-grid">
+                <div class="media-frame"><iframe loading="lazy" src="https://medal.tv/es/games/roblox-studio/clip/m5IzbRX7IMJCgS_S8" title="Roblox Studio VFX 1" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe></div>
+                <div class="media-frame"><iframe loading="lazy" src="https://medal.tv/es/games/roblox-studio/clip/m6XuL9mS5kUZhOjO7" title="Roblox Studio VFX 2" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe></div>
+                <div class="media-frame"><iframe loading="lazy" src="https://medal.tv/es/games/roblox-studio/clip/mbymVcH2B6AA_veMc" title="Roblox Studio VFX 3" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe></div>
+                <div class="media-frame"><iframe loading="lazy" src="https://medal.tv/es/games/roblox-studio/clip/lAQ8T8HxEMuL-prhw" title="Roblox Studio VFX 4" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe></div>
+                <div class="media-frame"><iframe loading="lazy" src="https://medal.tv/es/games/roblox-studio/clip/lAQfcR99VAZc9ygD8" title="Roblox Studio VFX 5" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe></div>
+                <div class="media-frame"><iframe loading="lazy" src="https://medal.tv/es/games/roblox-studio/clip/lFmL6vQYV8cFst4rW" title="Roblox Studio VFX 6" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe></div>
+                <div class="media-frame"><iframe loading="lazy" src="https://medal.tv/es/games/roblox-studio/clip/lEHL465lZzbVv2Npm" title="Roblox Studio VFX 7" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe></div>
+              </div>
+            </details>
+
+            <details class="category-group">
+              <summary class="category-summary">
+                <span class="project-chevron" aria-hidden="true"></span>
+                <span>Animations</span>
+              </summary>
+              <div class="category-content">
+                <p class="project-note">Animation videos will appear here when you add their embeds.</p>
+                <a href="" class="neon-btn">PlaceHolder</a>
+              </div>
+            </details>
           </div>
-      </details>
+        </details>
 
-      <details>
-        <summary>Animations</summary>
-        <!-- Aquí irían los iframes de animaciones -->
-      </details>
-    </details>
+        <details class="project-group">
+          <summary class="project-summary">
+            <span class="project-chevron" aria-hidden="true"></span>
+            <span class="title neon project-title">BLENDER</span>
+          </summary>
 
-    <details>
-      <summary>BLENDER</summary>
+          <div class="project-content">
+            <details class="category-group">
+              <summary class="category-summary">
+                <span class="project-chevron" aria-hidden="true"></span>
+                <span>Animations</span>
+                <span class="category-count">1 video</span>
+              </summary>
+              <div class="media-grid">
+                <div class="media-frame"><iframe loading="lazy" src="https://medal.tv/es/games/screen-capture/clip/lXUKVFVPWJ-EQvfWP" title="Blender animation" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe></div>
+              </div>
+            </details>
+          </div>
+        </details>
+      </section>
 
-      <details>
-        <summary>Animations</summary>
-        <!-- Aquí irían los iframes de Blender -->
-      </details>
-    </details>
-    
-    <h2 class="title neon"><u> Roblox Studio </u></h2>
+      <div class="projects-bottom-space" aria-hidden="true"></div>
+    </main>
 
-    <br>
-
-    <h3 class="title neon">VFX</h3>
-
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://medal.tv/es/games/roblox-studio/clip/m5IzbRX7IMJCgS_S8" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe>
-    </div>
-    
-    <br>
-    
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://medal.tv/es/games/roblox-studio/clip/m6XuL9mS5kUZhOjO7" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media *;">\</iframe>
-    </div>
-    
-    <br>
-    
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://medal.tv/es/games/roblox-studio/clip/mbymVcH2B6AA_veMc" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe>
-    </div>
-    
-    <br>
-    
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://medal.tv/es/games/roblox-studio/clip/lAQ8T8HxEMuL-prhw" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe>
-    </div>
-    
-    <br>
-    
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://medal.tv/es/games/roblox-studio/clip/lAQfcR99VAZc9ygD8" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe>
-    </div>
-    
-    <br>
-    
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://medal.tv/es/games/roblox-studio/clip/lFmL6vQYV8cFst4rW" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe>
-    </div>
-    
-    <br>
-    
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://medal.tv/es/games/roblox-studio/clip/lEHL465lZzbVv2Npm" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe>
-    </div>
-    
-    <br><br>
-
-    <h3 class="title neon"> Animations </h3>
-
-    <nav class="menu" role="navigation" aria-label="Menú principal">
-      <a href="" class="neon-btn">PlaceHolder</a>
-    </nav>
-    
-    <br><br><br>
-    
-    <h2 class="title neon"><u> Blender </u></h2>
-
-    <br>
-
-    <h3 class="title neon"> Animations </h3>
-
-    <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://medal.tv/es/games/screen-capture/clip/lXUKVFVPWJ-EQvfWP" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="encrypted-media *;"></iframe>
+    <div id="customScroll">
+      <div id="scrollThumb"></div>
     </div>
 
-    
-
-    <br><br><br><br><br><br>
-
-    
+    <!-- Contenedor del zorro -->
+    <div id="foxContainer"></div>
   </div>
-
-  <div id="customScroll">
-    <div id="scrollThumb"></div>
-  </div>
-
-  <!-- Contenedor del zorro -->
-  <div id="foxContainer"></div>
 
   <script src="script.js"></script>
 </body>
